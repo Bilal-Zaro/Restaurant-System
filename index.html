@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><p>Home</p></li>
+          <li><p>Menu</p></li>
+          <li><p>About us</p></li>
+          <li><p>Contact us</p></li>
+        </ul>
+      </nav>
+    </header>
+    <!------------------------------------------------------------------------->
+    <form id="form">
+      <label for="fullname">Fullname</label>
+      <input type="text" id="fullname" name="fullname" /><br /><br />
+
+      <label for="pass">Password</label>
+      <input type="text" name="pass" id="pass" /><br /><br />
+
+      <label for="dob">Date of birth : </label>
+      <input type="date" name="dob" id="dob" /><br /><br />
+
+      <label for="">Gender : </label>
+      <input type="radio" name="gen" id="gen1" value="male" />
+      <label for="gen1">Male</label>
+      <input type="radio" name="gen" id="gen2" value="female" />
+      <label for="gen2">Female</label><br /><br />
+
+      <label for="phone">Phone : </label>
+      <input type="text" name="phone" id="phone" /><br /><br />
+
+      <label for="">Order Type : </label><br />
+      <label for="ot1">Shawarma</label>
+      <input type="checkbox" name="ordertype" id="ot1" value="shawarma" />
+      <label for="ot2">Zinger</label>
+      <input type="checkbox" name="ordertype" id="ot2" value="zinger" />
+      <label for="ot3">Burger</label>
+      <input type="checkbox" name="ordertype" id="ot3" value="burger" /><br><br>
+    
+    
+      <label for="">Order Option : </label><br>
+      <label for="oo1">Combo</label>
+      <input type="radio" name="orderoption" id="oo1" value="combo">
+      <label for="oo2">Sandwish</label>
+      <input type="radio" name="orderoption" id="oo2" value="sandwish"><br><br><br>
+    
+    
+    
+    <button type="submit" id="submit">submit</button>
+  </form>
+
+  <div id="container"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
