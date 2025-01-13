@@ -20,13 +20,19 @@
     <!------------------------------------------------------------------------->
     <form id="form">
       <label for="fullname">Fullname</label>
-      <input type="text" id="fullname" name="fullname" /><br /><br />
+      <input type="text" id="fullname" name="fullname" />
+        <small id="usernameError" class="error"></small>
+<br /><br />
 
       <label for="pass">Password</label>
-      <input type="text" name="pass" id="pass" /><br /><br />
+      <input type="text" name="pass" id="pass" />
+        <small id="passwordError" class="error"></small>
+<br /><br />
 
       <label for="dob">Date of birth : </label>
-      <input type="date" name="dob" id="dob" /><br /><br />
+      <input type="date" name="dob" id="dob" />
+        <small id="birthdayError" class="error"></small>
+<br /><br />
 
       <label for="">Gender : </label>
       <input type="radio" name="gen" id="gen1" value="male" />
@@ -35,7 +41,9 @@
       <label for="gen2">Female</label><br /><br />
 
       <label for="phone">Phone : </label>
-      <input type="text" name="phone" id="phone" /><br /><br />
+      <input type="text" name="phone" id="phone" />
+        <small id="phoneError" class="error"></small>
+<br /><br />
 
       <label for="">Order Type : </label><br />
       <label for="ot1">Shawarma</label>

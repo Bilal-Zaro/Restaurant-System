@@ -16,24 +16,70 @@ function render(event) {
     'input[name="orderoption"]:checked'
   ).value;
 
-  const newcustomer = new Customer(
-    fullname,
-    pass,
-    dob,
-    gender,
-    phone,
-    ordertype,
-    orderoption
-  );
+  let isValid = true;
 
-  let gettedlocal = [];
-  gettedlocal = JSON.parse(window.localStorage.getItem("key")) || [];
-  gettedlocal;
-  localStorage.setItem("key", JSON.stringify(gettedlocal));
+  // Fullname Validation
+  if (/\s/.test(fullname)) {
+    document.getElementById("usernameError").textContent =
+      "Fullname must not contain spaces.";
+    isValid = false;
+  } else {
+    document.getElementById("usernameError").textContent = "";
+  }
 
-  document.getElementById("form").reset();
+  // Password Validation
+  const passwordRegex =
+    /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+  if (!passwordRegex.test(pass)) {
+    document.getElementById("passwordError").textContent =
+      "Password must be at least 8 characters long, include one number, one uppercase letter, and one special character.";
+    isValid = false;
+  } else {
+    document.getElementById("passwordError").textContent = "";
+  }
 
-  fullthecard(newcustomer);
+  // Date of Birth Validation
+  const birthdayRegex = /^\d{4}-\d{2}-\d{2}$/;
+  if (!birthdayRegex.test(dob)) {
+    document.getElementById("birthdayError").textContent =
+      "Date of Birth must be in the format YYYY-MM-DD.";
+    isValid = false;
+  } else {
+    document.getElementById("birthdayError").textContent = "";
+  }
+
+  // Phone Validation
+  const phoneRegex = /^07\d{8}$/;
+  if (!phoneRegex.test(phone)) {
+    document.getElementById("phoneError").textContent =
+      "Phone number must start with 07 and be exactly 10 digits.";
+    isValid = false;
+  } else {
+    document.getElementById("phoneError").textContent = "";
+  }
+
+  // If all validations pass
+  if (isValid) {
+    alert("Registration successful!");
+    const newcustomer = new Customer(
+      fullname,
+      pass,
+      dob,
+      gender,
+      phone,
+      ordertype,
+      orderoption
+    );
+
+    let gettedlocal = [];
+    gettedlocal = JSON.parse(window.localStorage.getItem("key")) || [];
+    gettedlocal.push(newcustomer);
+    localStorage.setItem("key", JSON.stringify(gettedlocal));
+
+    document.getElementById("form").reset();
+
+    fullthecard(newcustomer);
+  }
 }
 
 function Customer(fullname, pass, dob, gender, phone, ordertype, orderoption) {
@@ -55,9 +101,9 @@ function fullthecard(newcustomer) {
   const p3 = document.createElement("p");
 
   img.src = "bth.jpg";
-  p1.textContent = "fullname: " + newcustomer.fullname;
-  p2.textContent = "order type: " + newcustomer.ordertype;
-  p3.textContent = "order option: " + newcustomer.orderoption;
+  p1.textContent = "Fullname: " + newcustomer.fullname;
+  p2.textContent = "Order Type: " + newcustomer.ordertype;
+  p3.textContent = "Order Option: " + newcustomer.orderoption;
 
   card.appendChild(p1);
   card.appendChild(p2);
